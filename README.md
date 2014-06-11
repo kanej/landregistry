@@ -1,48 +1,41 @@
 # landregistry
 
-TODO: Brief description
-
-
-
-## Releases and Dependency Information
-
-* Releases are published to TODO_LINK
-
-* Latest stable release is TODO_LINK
-
-* All released versions TODO_LINK
-
-[Leiningen] dependency information:
-
-    [landregistry "0.1.0-SNAPSHOT"]
-
-[Maven] dependency information:
-
-    <dependency>
-      <groupId>landregistry</groupId>
-      <artifactId>landregistry</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
-    </dependency>
-
-[Leiningen]: http://leiningen.org/
-[Maven]: http://maven.apache.org/
-
-
+Some incanter magic working against the land registries datasets.
 
 ## Usage
 
-TODO
+Firstly pulled down the latest monthly sales file from the land registry. There is a script to do this under the data folder:
 
+```bash
+> ./data/download.sh
+```
 
+With the data in place, start up a repl session using leiningen:
+
+```bash
+> lein repl
+```
+
+By default, the user namespace will load in the monthly sales figures from the data folder. This dataset is availabe as the monthly-sales var.
+
+There are currently two functions (both in the landregistry namespace) that operate over the sales data. The first is show-all-town-entries, which lists town column of sales data.
+
+```clojure
+> (lr/show-all-town-entries months-sales)
+```
+
+Note that the landregistry namespace is aliased to lr in the user namespace.
+
+The second function is show-top-twenty-towns. This operates over the town column of all the sales, finding the 20 towns in which the most sales have occurred.
+
+```clojure
+> (lr/show-top-twenty-towns months-sales)
+```
 
 ## Change Log
 
-* Version 0.1.0-SNAPSHOT
-
-
+* Version 0.1.0-SNAPSHOT - first pass at finding the towns with the most sales.
 
 ## Copyright and License
 
-Copyright © 2014 TODO_INSERT_NAME
-
-TODO: [Choose a license](http://choosealicense.com/)
+Copyright © 2014 John Kane
