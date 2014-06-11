@@ -1,6 +1,6 @@
 # landregistry
 
-Some incanter magic working against the land registries datasets.
+Some incanter magic working against the land registry's datasets.
 
 ## Usage
 
@@ -18,7 +18,7 @@ With the data in place, start up a repl session using leiningen:
 
 By default, the user namespace will load in the monthly sales figures from the data folder. This dataset is availabe as the monthly-sales var.
 
-There are currently two functions (both in the landregistry namespace) that operate over the sales data. The first is show-all-town-entries, which lists town column of sales data.
+There are currently two functions (both in the landregistry namespace) that operate over the sales data. The first is show-all-town-entries, which lists the town column of the sales data.
 
 ```clojure
 > (lr/show-all-town-entries months-sales)
