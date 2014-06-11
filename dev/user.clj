@@ -14,8 +14,10 @@
    [incanter.core :as incant]
    [landregistry :as lr]))
 
-(defonce sales (io/read-dataset "./data/pp-monthly.csv"))
+(defonce months-sales
+  (-> (io/read-dataset "./data/pp-monthly.csv")
+      lr/prepare-dataset))
 
 (comment
-  (lr/show-towns sales)
-  (lr/town-freq sales))
+  (lr/show-all-town-entries months-sales)
+  (lr/show-top-twenty-towns months-sales))
